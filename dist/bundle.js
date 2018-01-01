@@ -17385,11 +17385,26 @@ var EntityDetails = (function (_super) {
         var _this = _super.call(this, props) || this;
         _this.generateItemData = function (item) {
             return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null, Object.keys(item).map(function (key) {
-                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h3", { key: key },
-                    " ",
-                    key,
-                    " : ",
-                    item[key]);
+                if (typeof item[key] === 'string') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h3", { key: key },
+                        " ",
+                        key,
+                        " : ",
+                        item[key]);
+                }
+                else if (Array.isArray(item[key])) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { key: key },
+                        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("h3", null,
+                            " ",
+                            key,
+                            " : "),
+                        item[key].map(function (val) {
+                            return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("a", { key: val, onClick: function () { return _this.props.fetchDataByUrl(val); } },
+                                " ",
+                                val,
+                                " ");
+                        }));
+                }
             }));
         };
         return _this;
@@ -19010,7 +19025,7 @@ var Avatar = (function (_super) {
                 case "vehicles":
                     return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://piratevinyldecals.com/wps/wp-content/uploads/2014/04/Star-Wars-X-Wing-PV376.png" });
                 default:
-                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "httpss://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" });
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" });
             }
         }
     };
@@ -19096,7 +19111,7 @@ var EntityHOC = function (category, iconKey) {
         EntityContainer.prototype.render = function () {
             return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["d" /* EntityList */], { iconKey: iconKey, activePage: this.state.activePage, fetchDataByPage: this.fetchDataByPage, fetchDataByUrl: this.fetchDataByUrl, items: this.props.items, pages: this.props.count / 10 }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["c" /* EntityDetails */], { iconKey: iconKey, item: this.props.selectedItem, opened: this.state.drawerOpened, closeDrawer: this.handleCloseDrawer })));
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["c" /* EntityDetails */], { iconKey: iconKey, item: this.props.selectedItem, opened: this.state.drawerOpened, fetchDataByUrl: this.fetchDataByUrl, closeDrawer: this.handleCloseDrawer })));
         };
         return EntityContainer;
     }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
@@ -19137,6 +19152,9 @@ var clearSelectedItem = function () { return ({
 }); };
 function fetchByUrl(url) {
     return function (dispatch) {
+        dispatch({
+            type: __WEBPACK_IMPORTED_MODULE_0__constants_actions__["a" /* CLEAR_SELECTED_ENTITY */]
+        });
         var request = Object(__WEBPACK_IMPORTED_MODULE_1__resources_index__["a" /* fetchUrl */])(url);
         return request.then(function (data) {
             return dispatch({

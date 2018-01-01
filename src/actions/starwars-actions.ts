@@ -9,6 +9,9 @@ export const clearSelectedItem =() => ({
 
 export function fetchByUrl(url) {
     return (dispatch) => {
+        dispatch({
+            type: Actions.CLEAR_SELECTED_ENTITY
+        });
         const request = fetchUrl(url);
   
         return request.then((data) => {

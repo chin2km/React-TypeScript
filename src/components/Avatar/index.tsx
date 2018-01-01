@@ -38,7 +38,7 @@ export class Avatar extends React.Component<Avatar.Props, Avatar.State> {
                 case "vehicles":
                     return <img className={"avatar " + this.props.size} src="https://piratevinyldecals.com/wps/wp-content/uploads/2014/04/Star-Wars-X-Wing-PV376.png" />  
                 default:
-                    return <img className={"avatar " + this.props.size} src="httpss://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" />  
+                    return <img className={"avatar " + this.props.size} src="https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" />  
             }             
         }
     }

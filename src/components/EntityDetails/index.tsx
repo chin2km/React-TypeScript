@@ -16,6 +16,7 @@ export namespace EntityDetails {
         item ?: ActorType;
         opened ?: boolean;
         closeDrawer?: (boolean) => void;
+        fetchDataByUrl?: (string) => void;
     }
   
     export interface State {
@@ -32,7 +33,18 @@ export class EntityDetails extends React.Component<EntityDetails.Props, EntityDe
         return <div>
             {
                 Object.keys(item).map(key => {
-                    return <h3 key={key}> {key} : {item[key]}</h3>
+                    if(typeof item[key] === 'string') {
+                        return <h3 key={key}> {key} : {item[key]}</h3>;
+                    } else if (Array.isArray(item[key])) {
+                        return <div key={key}>
+                            <h3> {key} : </h3>
+                            {
+                                item[key].map(val => {
+                                    return <a key={val} onClick={() => this.props.fetchDataByUrl(val)}> {val} </a>
+                                })
+                            }
+                        </div>
+                    }
                 })
             }
         </div>

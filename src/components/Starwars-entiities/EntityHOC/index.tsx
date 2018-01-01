@@ -69,6 +69,7 @@ const EntityHOC = (category, iconKey) => {
                         iconKey={iconKey}
                         item={this.props.selectedItem}
                         opened={this.state.drawerOpened}
+                        fetchDataByUrl={this.fetchDataByUrl}
                         closeDrawer={this.handleCloseDrawer}
                     />
                 </div>
