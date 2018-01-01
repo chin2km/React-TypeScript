@@ -14,7 +14,6 @@ export namespace EntityContainer {
         fetch: any;
         fetchByUrl: any;
         clearSelectedItem: any;
-        category: string;
     }
 
     export interface State {
@@ -23,7 +22,7 @@ export namespace EntityContainer {
     }
 }
 
-const EntityHOC = category => {
+const EntityHOC = (category, iconKey) => {
 
     class EntityContainer extends React.Component<EntityContainer.Props, EntityContainer.State> {
         constructor(props){
@@ -59,6 +58,7 @@ const EntityHOC = category => {
             return (
                 <div>
                     <EntityList
+                        iconKey={iconKey}
                         activePage={this.state.activePage}
                         fetchDataByPage={this.fetchDataByPage}
                         fetchDataByUrl={this.fetchDataByUrl}
@@ -66,6 +66,7 @@ const EntityHOC = category => {
                         pages={this.props.count/10}
                     />
                     <EntityDetails
+                        iconKey={iconKey}
                         item={this.props.selectedItem}
                         opened={this.state.drawerOpened}
                         closeDrawer={this.handleCloseDrawer}

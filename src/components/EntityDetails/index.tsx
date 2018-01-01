@@ -12,6 +12,7 @@ import {Spinner, Avatar} from '../index';
 
 export namespace EntityDetails {
     export interface Props {
+        iconKey: string;
         item ?: ActorType;
         opened ?: boolean;
         closeDrawer?: (boolean) => void;
@@ -61,7 +62,7 @@ export class EntityDetails extends React.Component<EntityDetails.Props, EntityDe
                             {item?
                                 <div className="detailed">
 
-                                    <Avatar gender={item.gender} size="big"/>
+                                    <Avatar iconKey={this.props.iconKey} item={item} size="big"/>
 
                                     {this.generateItemData(item)}
                                 </div>

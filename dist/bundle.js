@@ -14857,9 +14857,9 @@ var EntityList = (function (_super) {
     }
     EntityList.prototype.createItems = function () {
         var _this = this;
-        return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_material_ui_List__["List"], null, this.props.items.map(function (item) {
+        return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_material_ui_List__["List"], { className: "entity-list" }, this.props.items.map(function (item) {
             return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_material_ui_List__["ListItem"], { className: "list-item", onClick: function () { return _this.props.fetchDataByUrl(item.url); }, key: item.name || item.title, primaryText: item.name || item.title, leftAvatar: __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
-                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_4__index__["b" /* Avatar */], { gender: item.gender, size: "small" })), rightIcon: __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_material_ui_svg_icons_navigation_more_vert___default.a, null) });
+                    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_4__index__["b" /* Avatar */], { iconKey: _this.props.iconKey, item: item, size: "small" })), rightIcon: __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_material_ui_svg_icons_navigation_more_vert___default.a, null) });
         }));
     };
     EntityList.prototype.createPagination = function () {
@@ -17403,7 +17403,7 @@ var EntityDetails = (function (_super) {
                             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_4_material_ui_svg_icons_navigation_close___default.a, null)), title: "back to the dark side" }),
                     __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "darkBg" }, item ?
                         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", { className: "detailed" },
-                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__index__["b" /* Avatar */], { gender: item.gender, size: "big" }),
+                            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__index__["b" /* Avatar */], { iconKey: this.props.iconKey, item: item, size: "big" }),
                             this.generateItemData(item))
                         : __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__index__["j" /* Spinner */], { show: true, message: "" }))))));
     };
@@ -18986,13 +18986,32 @@ var Avatar = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Avatar.prototype.render = function () {
-        switch (this.props.gender) {
-            case "male":
-                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/Darth-Vader-icon.png" });
-            case "female":
-                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icon-icons.com/icons2/318/PNG/512/Leia-icon_34495.png" });
-            default:
-                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" });
+        var _a = this.props, iconKey = _a.iconKey, item = _a.item;
+        if (item.hasOwnProperty(iconKey)) {
+            switch (item[iconKey]) {
+                case "male":
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/Darth-Vader-icon.png" });
+                case "female":
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icon-icons.com/icons2/318/PNG/512/Leia-icon_34495.png" });
+                default:
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" });
+            }
+        }
+        else {
+            switch (iconKey) {
+                case "films":
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://www.clipartkid.com/images/662/star-wars-logotipos-logos-gratuitos-clipartlogo-com-70pttz-clipart.png" });
+                case "planets":
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://d30y9cdsu7xlg0.cloudfront.net/png/67850-200.png" });
+                case "species":
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://www.clipartkid.com/images/185/star-wars-vector-yoda-vector-yoda-shape-star-wars-shape-yoda-png-star-bQSODo-clipart.png" });
+                case "starships":
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://raddezigns.com/decal_pics/10484_Black.jpg" });
+                case "vehicles":
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://piratevinyldecals.com/wps/wp-content/uploads/2014/04/Star-Wars-X-Wing-PV376.png" });
+                default:
+                    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "httpss://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" });
+            }
         }
     };
     return Avatar;
@@ -19013,12 +19032,12 @@ var Avatar = (function (_super) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Vehicles; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EntityHOC__ = __webpack_require__(394);
 
-var Actors = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('people');
-var Planets = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('planets');
-var Species = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('species');
-var Movies = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('films');
-var StarShips = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('starships');
-var Vehicles = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('vehicles');
+var Actors = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('people', 'gender');
+var Planets = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('planets', 'planets');
+var Species = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('species', 'species');
+var Movies = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('films', 'films');
+var StarShips = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('starships', 'starships');
+var Vehicles = Object(__WEBPACK_IMPORTED_MODULE_0__EntityHOC__["a" /* default */])('vehicles', 'vehicles');
 
 
 /***/ }),
@@ -19046,7 +19065,7 @@ var __extends = (this && this.__extends) || (function () {
 
 
 
-var EntityHOC = function (category) {
+var EntityHOC = function (category, iconKey) {
     var EntityContainer = (function (_super) {
         __extends(EntityContainer, _super);
         function EntityContainer(props) {
@@ -19076,8 +19095,8 @@ var EntityHOC = function (category) {
         };
         EntityContainer.prototype.render = function () {
             return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("div", null,
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["d" /* EntityList */], { activePage: this.state.activePage, fetchDataByPage: this.fetchDataByPage, fetchDataByUrl: this.fetchDataByUrl, items: this.props.items, pages: this.props.count / 10 }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["c" /* EntityDetails */], { item: this.props.selectedItem, opened: this.state.drawerOpened, closeDrawer: this.handleCloseDrawer })));
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["d" /* EntityList */], { iconKey: iconKey, activePage: this.state.activePage, fetchDataByPage: this.fetchDataByPage, fetchDataByUrl: this.fetchDataByUrl, items: this.props.items, pages: this.props.count / 10 }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["c" /* EntityDetails */], { iconKey: iconKey, item: this.props.selectedItem, opened: this.state.drawerOpened, closeDrawer: this.handleCloseDrawer })));
         };
         return EntityContainer;
     }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));

@@ -8,11 +8,12 @@ import {Spinner, Avatar} from '../index';
 
 export namespace EntityList {
   export interface Props {
-      items: ActorType[];
-      pages: number;
-      activePage: number;
-      fetchDataByUrl?: (itemType) => void;
-      fetchDataByPage?: (number) => void;
+    iconKey: string;
+    items: ActorType[];
+    pages: number;
+    activePage: number;
+    fetchDataByUrl?: (itemType) => void;
+    fetchDataByPage?: (number) => void;
   }
 
   export interface State {
@@ -22,14 +23,14 @@ export namespace EntityList {
 export class EntityList extends React.Component<EntityList.Props, EntityList.State>  {
 
     createItems() {
-        return <List>
+        return <List className="entity-list">
 
                 {this.props.items.map(item =>
                     <ListItem className="list-item"
                         onClick={() => this.props.fetchDataByUrl(item.url)}
                         key={item.name || item.title}
                         primaryText={item.name || item.title}
-                        leftAvatar={<div><Avatar gender={item.gender} size="small" /></div>}
+                        leftAvatar={<div><Avatar iconKey={this.props.iconKey} item={item} size="small" /></div>}
                         rightIcon={<MoreVertIcon />}
                         />
                 )
