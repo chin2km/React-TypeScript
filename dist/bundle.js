@@ -2247,7 +2247,7 @@ const getPath = (route) => {
     if (false) {
         return `/React-TS${route ? `/${route}` : ''}/`
     } else {
-        return `/React-TS${route ? `/${route}` : ''}/`
+        return `/React-TypeScript${route ? `/${route}` : ''}/`
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = getPath;
