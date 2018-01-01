@@ -25,14 +25,12 @@ module.exports = {
   },
   output: {
     path: outPath,
-    publicPath: '/',
+    publicPath: '/React-TS/',
     filename: 'bundle.js',
   },
   target: 'web',
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
-    // Fix webpack's default behavior to not load packages with jsnext:main module
-    // https://github.com/Microsoft/TypeScript/issues/11677
     mainFields: ['browser', 'main']
   },
   module: {
@@ -73,10 +71,6 @@ module.exports = {
       minChunks: Infinity
     }),
     new Webpack.optimize.AggressiveMergingPlugin(),
-    // new ExtractTextPlugin({
-    //   filename: 'styles.css',
-    //   disable: !isProduction
-    // }),
     extractLess,
     new HtmlWebpackPlugin({
       template: 'index.html'
@@ -90,8 +84,6 @@ module.exports = {
     },
   },
   node: {
-    // workaround for webpack-dev-server issue
-    // https://github.com/webpack/webpack-dev-server/issues/60#issuecomment-103411179
     fs: 'empty',
     net: 'empty'
   }

@@ -3,6 +3,7 @@ import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNaviga
 import Paper from 'material-ui/Paper';
 
 import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
+import {getPath} from '../../utils/path-utils';
 
 import { Link } from "react-router-dom";
 
@@ -37,7 +38,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
         <BottomNavigation selectedIndex={this.state.selectedIndex}>
 
     
-          <Link to="/actors">
+          <Link to={getPath('actors')}>
             <BottomNavigationItem
               label="Actors"
               icon={<i className="material-icons" style={styleColor}>face</i>}
@@ -45,7 +46,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
             />
           </Link>
           
-          <Link to="/films">
+          <Link to={getPath('films')}>
             <BottomNavigationItem
               label="Films"
               icon={<i className="material-icons" style={styleColor}>movie</i>}
@@ -53,7 +54,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
             />
           </Link>
 
-          <Link to="/starships">
+          <Link to={getPath('starships')}>
             <BottomNavigationItem
               label="Starships"
               icon={<i className="material-icons" style={styleColor}>gamepad</i>}
@@ -61,7 +62,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
             />
           </Link>
 
-          <Link to="/planets">
+          <Link to={getPath('planets')}>
             <BottomNavigationItem
               label="Planets"
               icon={<i className="material-icons" style={styleColor}>tonality</i>}
@@ -69,14 +70,14 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
             />
           </Link>
 
-          <Link to="/vehicles">
+          <Link to={getPath('vehicles')}>
             <BottomNavigationItem
               label="Vehicles"
               icon={<i className="material-icons" style={styleColor}>flight</i>}
               onClick={() => this.select(4)}
             />
           </Link>
-          <Link to="/species">
+          <Link to={getPath('species')}>
             <BottomNavigationItem
               label="Species"
               icon={<i className="material-icons" style={styleColor}>person_pin</i>}
