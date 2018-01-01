@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "A frontend boilerplate with React, Redux and Typescript",
+  "homepage": "https://chin2km.github.io/React-TypeScript/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
