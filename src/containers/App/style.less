@@ -1,0 +1,256 @@
+@darkBg:rgb(29, 29, 29);
+body {
+  margin: 0;
+  padding: 0;
+  background: @darkBg
+}
+
+.darkBg {
+  position: absolute;
+  width: 100%;
+  // height: ~"calc(100% - 64px)";
+  background: #333;
+}
+
+* {
+  color: white
+}
+
+.site-title {
+  text-align: center;
+  background: rgb(0, 188, 212);
+  margin: 0;
+  padding: 9px 0px;
+  box-shadow: 0px 1px 2px 2px rgba(86, 86, 86, 0.55);
+}
+
+.loader-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  div {
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+  h3 {
+    display: block;
+    height: 160px;
+    text-align: center;
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+.avatar {
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  filter: drop-shadow(0px 1px 6px #fff);
+  -webkit-filter: drop-shadow(0px 1px 6px #fff);
+  -moz-filter: drop-shadow(0px 1px 6px #fff);
+  -ms-filter: drop-shadow(0px 1px 6px #fff);
+  -o-filter: drop-shadow(0px 1px 6px #fff);
+  &:hover {
+    transform: scale(1.2)
+  }
+  &.small {
+    width: 40px
+  }
+  &.big {
+    display: block;
+    margin: 20px auto;
+    height: 150px
+  }
+}
+
+.list-item{
+  padding: 5px 0px !important;
+}
+
+.list-item:hover .avatar {
+  transform: scale(1.5)
+}
+
+.detailed {
+  padding: 0px 15px;
+  h1 {
+    text-align: center;
+  }
+}
+
+.home-btn {
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  float: right;
+}
+
+.my-footer {
+  position: fixed;
+  width: 100%;
+  height: 63px;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.01);
+  &:hover .logo {
+    transform: rotate(-180deg) translateY(0)
+  }
+}
+
+.my-footer .logo {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background-image: url(/Images/chin2km.png);
+  background-size: 100%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: rotate(-180deg) translateY(0)
+  }
+}
+
+.logo {
+  text-align: center;
+  -webkit-transform: translateZ(0);
+  /* webkit flicker fix */
+  -webkit-font-smoothing: antialiased;
+  /* webkit text rendering fix */
+}
+
+.logo .tooltip {
+  background: #1496bb;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  left: 1px;
+  right: 0;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 20px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  min-width: 200px;
+  -webkit-transform: translateY(10px) rotate(360deg);
+  -moz-transform: translateY(10px) rotate(360deg);
+  -ms-transform: translateY(10px) rotate(360deg);
+  -o-transform: translateY(10px) rotate(360deg);
+  transform: translateY(10px) rotate(360deg);
+  -webkit-transition: all .25s ease-out;
+  -moz-transition: all .25s ease-out;
+  -ms-transition: all .25s ease-out;
+  -o-transition: all .25s ease-out;
+  transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+
+.logo .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.logo:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px) rotate(180deg);
+  -moz-transform: translateY(0px) rotate(180deg);
+  -ms-transform: translateY(0px) rotate(180deg);
+  -o-transform: translateY(0px) rotate(180deg);
+  transform: translateY(0px) rotate(180deg);
+}
+
+
+/* IE can just show/hide with no transition */
+
+.lte8 .logo .tooltip {
+  display: none;
+}
+
+.lte8 .logo:hover .tooltip {
+  display: block;
+}
+
+.navBar {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.floatingButton {
+    display: block;
+    position: fixed;
+    bottom: 95px;
+    right: 45px;
+    width: 40px;
+    height: 40px;
+    background: #00bbd2;
+    border-radius: 280px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    line-height: 2.5em;
+  &:hover {
+    transition: all 0.3s ease-in;
+    background: transparent;
+    color: transparent;
+    width: 100%;
+    .pageNo {
+      opacity: 1;
+      position: relative;
+      float: right;
+      -webkit-transform: translateX(0px);
+      -moz-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+      -o-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+    .pageTip{
+      opacity: 0;
+    }
+
+  }
+  .pageNo {
+    position: absolute;
+    right: 0;
+    transition: all 3s ease-in;
+    transition-delay: 0.5s;
+    opacity: 0;
+    margin: 0px 10px;
+    min-width: auto !important;
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  .pageTip {
+      position: absolute;
+      right: 46px;
+      opacity: 1;
+      transition: all 0.3e ease;
+  }
+}
