@@ -1,11 +1,23 @@
 import * as React from 'react';
-import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
+import { BottomNavigation, BottomNavigationItem , FontIcon} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 
-import FileCloudDownload from 'material-ui/svg-icons/file/cloud-download';
+import ActorsIconFile from 'material-ui/svg-icons/action/face';
+import MoviesIconFile from 'material-ui/svg-icons/av/movie';
+import StartShipsIconFile from 'material-ui/svg-icons/hardware/gamepad';
+import PlanetsIconFile from 'material-ui/svg-icons/image/tonality';
+import VehiclesIconFile from 'material-ui/svg-icons/action/flight-takeoff';
+import SpeciesIconFile from 'material-ui/svg-icons/maps/person-pin'
 import {getPath} from '../../utils/path-utils';
 
 import { Link } from "react-router-dom";
+
+const ActorsIcon = <ActorsIconFile/>;
+const MoviesIcon = <MoviesIconFile/>;
+const StartShipsIcon = <StartShipsIconFile/>;
+const PlanetsIcon =  <PlanetsIconFile/>;
+const VehiclesIcon = <VehiclesIconFile/>;
+const SpeciesIcon = <SpeciesIconFile/>;
 
 
 const styleColor={
@@ -41,7 +53,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
           <Link to={getPath('actors')}>
             <BottomNavigationItem
               label="Actors"
-              icon={<i className="material-icons" style={styleColor}>face</i>}
+              icon={ActorsIcon}
               onClick={() => this.select(0)}
             />
           </Link>
@@ -49,7 +61,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
           <Link to={getPath('films')}>
             <BottomNavigationItem
               label="Films"
-              icon={<i className="material-icons" style={styleColor}>movie</i>}
+              icon={MoviesIcon}
               onClick={() => this.select(1)}
             />
           </Link>
@@ -57,7 +69,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
           <Link to={getPath('starships')}>
             <BottomNavigationItem
               label="Starships"
-              icon={<i className="material-icons" style={styleColor}>gamepad</i>}
+              icon={StartShipsIcon}
               onClick={() => this.select(2)}
             />
           </Link>
@@ -65,7 +77,7 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
           <Link to={getPath('planets')}>
             <BottomNavigationItem
               label="Planets"
-              icon={<i className="material-icons" style={styleColor}>tonality</i>}
+              icon={PlanetsIcon}
               onClick={() => this.select(3)}
             />
           </Link>
@@ -73,14 +85,14 @@ export class NavigationBar extends React.Component<NavigationBar.Props, Navigati
           <Link to={getPath('vehicles')}>
             <BottomNavigationItem
               label="Vehicles"
-              icon={<i className="material-icons" style={styleColor}>flight</i>}
+              icon={VehiclesIcon}
               onClick={() => this.select(4)}
             />
           </Link>
           <Link to={getPath('species')}>
             <BottomNavigationItem
               label="Species"
-              icon={<i className="material-icons" style={styleColor}>person_pin</i>}
+              icon={SpeciesIcon}
               onClick={() => this.select(5)}
             />
           </Link>
