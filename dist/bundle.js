@@ -18715,11 +18715,11 @@ var Avatar = (function (_super) {
     Avatar.prototype.render = function () {
         switch (this.props.gender) {
             case "male":
-                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "http://icons.iconarchive.com/icons/sensibleworld/starwars/1024/Darth-Vader-icon.png" });
+                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/Darth-Vader-icon.png" });
             case "female":
-                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "http://icon-icons.com/icons2/318/PNG/512/Leia-icon_34495.png" });
+                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icon-icons.com/icons2/318/PNG/512/Leia-icon_34495.png" });
             default:
-                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "http://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" });
+                return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { className: "avatar " + this.props.size, src: "https://icons.iconarchive.com/icons/sensibleworld/starwars/1024/R2D2-icon.png" });
         }
     };
     return Avatar;
