@@ -11,16 +11,16 @@ import { App } from './containers/App';
 const store: any = configureStore();
 const history: any = createBrowserHistory();
 
+console.log(process.env.PUBLIC_URL)
+
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>
-      <BrowserRouter basename="/React-TypeScript/">
-          <Router history={history}>
-            <Switch>
-              <Route path="/" component={App} />
-            </Switch>
-          </Router>
-      </BrowserRouter>
+        <Router history={history}>
+          <Switch>
+            <Route path="/" component={App} />
+          </Switch>
+        </Router>
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
