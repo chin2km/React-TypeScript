@@ -1,4 +1,4 @@
-# Trying out React with TypeScript
+# StartWars Gallery with React and TypeScript
 
 Demo: [https://chin2km.github.io/React-TypeScript/](https://chin2km.github.io/React-TypeScript/)
 
